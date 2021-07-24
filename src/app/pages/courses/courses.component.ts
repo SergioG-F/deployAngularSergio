@@ -21,6 +21,10 @@ export class CoursesComponent implements OnInit, OnDestroy {
     console.log('después del constructor');
   }
 
+  courseClick(event: { title: string }): void {
+    console.log(event, 'Data que viene del hijo');
+  }
+
   ngOnDestroy(): void {
     console.log('antes de ser destruido');
   }

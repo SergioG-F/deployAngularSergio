@@ -1,7 +1,9 @@
 <div style="display: flex; flex-direction: column; gap: 10px">
   <app-course
-    *ngFor="let course of courses"
-    [sessionNumber]="course"
+    *ngFor="let course of courses; let index = index"
+    [sessionNumber]="index"
+    [title]="course.title"
+    (onCourseClick)="courseClick($event)"
   ></app-course>
   <!-- <mat-card style="width: 300px" >
     <mat-card-title>Curso de angular </mat-card-title>
