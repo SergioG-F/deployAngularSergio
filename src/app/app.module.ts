@@ -15,6 +15,7 @@ import { AppService } from './app.service';
 import { TextReducerPipe } from './pipes/text-reducer.pipe';
 import { ChangeColorDirective } from './directives/change-color.directive';
 import { NoIfDirective } from './directives/no-if.directive';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -30,6 +31,7 @@ import { NoIfDirective } from './directives/no-if.directive';
   imports: [
     BrowserModule,
     AppRoutingModule,
+    FormsModule,
     BrowserAnimationsModule,
     MatButtonModule,
     MatCardModule,

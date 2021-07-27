@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnChanges, OnInit } from '@angular/core';
 import { CoursesService } from 'src/app/services/courses.service';
 import { HolaService } from './home.service';
 
@@ -8,10 +8,16 @@ import { HolaService } from './home.service';
   styleUrls: ['./home.component.scss'],
   providers: [HolaService],
 })
-export class HomeComponent implements OnInit {
-  constructor(private coursesService: CoursesService) {}
+export class HomeComponent implements OnInit, OnChanges {
+  constructor(private coursesService: CoursesService) {
+    console.log('desde constructor');
+  }
+
+  ngOnChanges(): void {
+    console.log('desde ngOnChanges');
+  }
 
   ngOnInit(): void {
-    console.log(this.coursesService.courses);
+    console.log(this.coursesService.courses, 'desde ngOnInit');
   }
 }
