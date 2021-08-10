@@ -16,6 +16,8 @@ import { TextReducerPipe } from './pipes/text-reducer.pipe';
 import { ChangeColorDirective } from './directives/change-color.directive';
 import { NoIfDirective } from './directives/no-if.directive';
 import { FormsModule } from '@angular/forms';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { CustomHttpInterceptor } from './custom-http.interceptor';
 
 @NgModule({
   declarations: [
@@ -36,8 +38,16 @@ import { FormsModule } from '@angular/forms';
     MatButtonModule,
     MatCardModule,
     NosotrosModule,
+    HttpClientModule,
   ],
-  providers: [AppService],
+  providers: [
+    AppService,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: CustomHttpInterceptor,
+      multi: true,
+    },
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
